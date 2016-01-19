@@ -388,5 +388,5 @@ if on_rtd:
         def __getattr__(cls, name):
                 return Mock()
 
-    MOCK_MODULES = ['argparse', 'numpy', 'pandas', 'scipy', 'matplotlib', 'matplotlib.pyplot', 'deap']
+    MOCK_MODULES = ['functools', 'cPickle','argparse', 'numpy', 'pandas', 'scipy', 'scipy.stats', 'scipy.integrate', 'matplotlib', 'matplotlib.pyplot', 'deap']
     sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
