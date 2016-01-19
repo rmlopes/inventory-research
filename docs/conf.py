@@ -381,8 +381,7 @@ epub_exclude_files = ['search.html']
 
 ### For uploading into ReadTheDocs.org
 if on_rtd:
-    import unittest.mock
-    from unittest.mock import MagicMock
+    from mock import Mock as MagicMock
 
     class Mock(MagicMock):
         @classmethod
