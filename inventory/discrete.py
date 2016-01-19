@@ -29,7 +29,10 @@ from scipy.stats import poisson
 
 log = logging.getLogger(__name__)
 
-pdtable = pkl.load(open(os.path.dirname(__file__) + '\cumpoisson_int2M.pkl', 'rb'))
+try:
+    pdtable = pkl.load(open(os.path.dirname(__file__) + '\cumpoisson_int2M.pkl', 'rb'))
+except IOError:
+    warnings.warn("Error loading pre-loaded poisson cumulative distribution function table. Use scipy.stats.poisson.cdf instead!")
 
 def pdcdf(x, lbd):
     '''
