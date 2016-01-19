@@ -381,6 +381,7 @@ epub_exclude_files = ['search.html']
 
 ### For uploading into ReadTheDocs.org
 if on_rtd:
+    import unittest.mock
     from unittest.mock import MagicMock
 
     class Mock(MagicMock):
@@ -388,5 +389,5 @@ if on_rtd:
         def __getattr__(cls, name):
                 return Mock()
 
-    MOCK_MODULES = ['pygtk', 'gtk', 'gobject', 'argparse', 'numpy', 'pandas', 'scipy']
+    MOCK_MODULES = ['argparse', 'numpy', 'pandas', 'scipy', 'matplotlib', 'matplotlib.pyplot']
     sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
